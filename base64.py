@@ -1,20 +1,30 @@
+"""Module for conversion of strings to base64"""
 from binary import base_ten_to_binary, binary_to_base_ten
 from ascii import create_ascii_dict
 
-char_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
-'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
-'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-'t', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4',
-'5', '6', '7', '8', '9', '+', '/']
+CHAR_LIST = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+             'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+             'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+             'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+             't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4',
+             '5', '6', '7', '8', '9', '+', '/']
+
 
 def create_base64_dict() -> dict:
+    """
+    creates base64 lookup dict from
+    list of characters
+    """
     table = {}
     for i in range(0, 64):
-        table[str(i)] = char_list[i]
+        table[str(i)] = CHAR_LIST[i]
     return table
 
+
 def string_to_base64(string: str):
+    """
+    convert string to base64.
+    """
     ascii_dict = create_ascii_dict()
     bin_list = []
     for i in string:
@@ -35,7 +45,11 @@ def string_to_base64(string: str):
         base64_string += i
     return base64_string
 
-def split_str_into_groups_of_three(string: str):
+def split_str_into_groups_of_three(string: str) -> list:
+    """
+    splits a string into list containing
+    groups of six binary characters
+    """
     result_list = []
     sextet = ''
     for i in range(0, len(string)):
