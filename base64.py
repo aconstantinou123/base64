@@ -31,19 +31,14 @@ def string_to_base64(string: str):
         ascii_num = ascii_dict[i]
         bin = base_ten_to_binary(int(ascii_num))
         bin_list.append(bin)
-    bin_string = ''
-    for i in bin_list:
-        bin_string += i
+    bin_string = ', '.join(bin_list).replace(', ', '')
     sextet_list = split_str_into_groups_of_three(bin_string)
     base_ten_list = [str(binary_to_base_ten(i))
                      for i in sextet_list]
     base_64_dict = create_base64_dict()
     base64_list = [base_64_dict[i]
                    for i in base_ten_list]
-    base64_string = ''
-    for i in base64_list:
-        base64_string += i
-    return base64_string
+    return ', '.join(base64_list).replace(', ', '')
 
 def split_str_into_groups_of_three(string: str) -> list:
     """
