@@ -3,7 +3,7 @@
 
 def binary_to_base_ten(bin_num: str) -> int:
     """
-    recursive function to convert a binary
+    Function to convert a binary
     number to base ten
     param bin_num: the number to convert
     """
