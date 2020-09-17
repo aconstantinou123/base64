@@ -38,7 +38,7 @@ def string_to_base64(string: str):
     base_64_dict = create_base64_dict()
     base64_list = [base_64_dict[i]
                    for i in base_ten_list]
-    return ', '.join(base64_list).replace(', ', '')
+    return str.encode(', '.join(base64_list).replace(', ', ''))
 
 def split_str_into_groups_of_three(string: str) -> list:
     """
